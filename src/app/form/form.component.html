@@ -1,1 +1,16 @@
-<p>form works!</p>
+<div class="mx-1">
+  <form class="example-form" (ngSubmit)="saveData()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Imię</mat-label>
+      <input matInput name="name" [(ngModel)] = "worker.name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label >Nazwisko</mat-label>
+      <input matInput name="surname" [(ngModel)]="worker.surname">
+    </mat-form-field>
+    <button mat-button type="submit">Wyślij</button>
+  </form>
+
+</div>
+
