@@ -10,11 +10,13 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
