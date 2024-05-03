@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { WorkerService } from '../core/services/worker.service';
 import { Worker } from '../core/interfaces/worker';
+
+// import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-form',
@@ -13,6 +15,7 @@ export class FormComponent {
     name: '',
     surname: ''
   };
+
 
  constructor(private workerService: WorkerService){}
  test():void{

@@ -2,7 +2,7 @@
   <form class="example-form" (ngSubmit)="saveData()">
     <mat-form-field class="example-full-width">
       <mat-label>Imię</mat-label>
-      <input matInput name="name" [(ngModel)] = "worker.name">
+      <input matInput name="name" [(ngModel)]="worker.name">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -11,6 +11,5 @@
     </mat-form-field>
     <button mat-button type="submit">Wyślij</button>
   </form>
-
 </div>
 
