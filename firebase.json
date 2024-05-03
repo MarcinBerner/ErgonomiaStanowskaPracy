@@ -1,0 +1,11 @@
+{
+  "hosting": [
+    {
+      "target": "ergonomia-stanowiska-pracy",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "europe-west1"
+      }
+    }
+  ]
+}

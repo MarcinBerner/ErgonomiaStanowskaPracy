@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ergonomia-stanowiska-pracy": {
+      "hosting": {
+        "ergonomia-stanowiska-pracy": [
+          "ergonomia-stanowiska-pracy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ergonomia-stanowiska-pracy"
+  }
+}
