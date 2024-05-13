@@ -11,16 +11,13 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormComponent } from './form/form.component';
-import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
-import {Component} from '@angular/core';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
-import {merge} from 'rxjs';
+import {FormControl, Validators, ReactiveFormsModule, FormBuilder, FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -41,6 +38,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatStepperModule,
     provideFirebaseApp(() => initializeApp({"projectId":"ergonomia-stanowiska-pracy","appId":"1:634029187584:web:0e94aabe1c980da1996ee5","databaseURL":"https://ergonomia-stanowiska-pracy-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"ergonomia-stanowiska-pracy.appspot.com","apiKey":"AIzaSyAjBR8LoQO1rJ6NfHdgkUE499oSUt446OU","authDomain":"ergonomia-stanowiska-pracy.firebaseapp.com","messagingSenderId":"634029187584"})),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
