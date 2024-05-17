@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import {FormControl, Validators, ReactiveFormsModule, FormBuilder, FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     ReactiveFormsModule,
     MatIconModule,
     MatStepperModule,
+    MatRadioModule,
+    MatCheckboxModule,
     provideFirebaseApp(() => initializeApp({"projectId":"ergonomia-stanowiska-pracy","appId":"1:634029187584:web:0e94aabe1c980da1996ee5","databaseURL":"https://ergonomia-stanowiska-pracy-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"ergonomia-stanowiska-pracy.appspot.com","apiKey":"AIzaSyAjBR8LoQO1rJ6NfHdgkUE499oSUt446OU","authDomain":"ergonomia-stanowiska-pracy.firebaseapp.com","messagingSenderId":"634029187584"})),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

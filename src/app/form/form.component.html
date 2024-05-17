@@ -1,17 +1,3 @@
-<!-- <div class="mx-1">
-  <form class="example-form" (ngSubmit)="saveData()">
-    <mat-form-field class="example-full-width">
-      <mat-label>Imię</mat-label>
-      <input matInput name="name" [(ngModel)]="worker.name">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label >Nazwisko</mat-label>
-      <input matInput name="surname" [(ngModel)]="worker.surname">
-    </mat-form-field>
-    <button mat-button type="submit">Wyślij</button>
-  </form>
-</div> -->
 
 <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="personalData">
@@ -36,13 +22,259 @@
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
+      <ng-template matStepLabel>Wysokość siedziska</ng-template>
       <div>
+         <mat-radio-group aria-label="Seat height">
+         <div> <mat-radio-button value="1">Noga zgięta w kolanie pod kątem około 90°</mat-radio-button></div>
+         <div><mat-radio-button value="2">Siedzisko za niskie; kąt zgięcia w kolanach mniejszy niż 90°</mat-radio-button></div>
+         <div><mat-radio-button value="3">Siedzisko za wysokie; kąt zgięcia w kolanach większy niż 90°</mat-radio-button></div>
+         <div><mat-radio-button value="4">Stopy nie mają kontaktu z podłożem</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Brak wystarczającej przestrzeni na nogi pod powierzchnią biurka</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Wysokość siedziska nie jest regulowana</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Głębokość siedziska</ng-template>
+      <div>
+         <mat-radio-group aria-label="Seat depth">
+         <div> <mat-radio-button value="1">Około 7,5 cm przestrzeni między krawędzią krzesła i okolicą podkolanową</mat-radio-button></div>
+         <div><mat-radio-button value="2">Zbyt duża głębokość siedziska (mniej niż 7,5 cm przestrzeni między krawędzią krzesła i okolicą podkolanową)</mat-radio-button></div>
+         <div><mat-radio-button value="3">Siedzisko jest zbyt krótkie - ponad 7,5 cm przestrzeni między krawędzią krzesła i okolicą podkolanową</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Głębokość siedziska nie jest regulowana</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Krzesło - czas użytkowania</ng-template>
+      <div>
+         <mat-radio-group aria-label="Seat depth">
+         <div> <mat-radio-button value="1">Sprzęt jest używany przez ponad 1 godzinę w trybie ciągłym lub przez ponad 4 godziny dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="2">Sprzęt używany jest przez mniej niż 30 minut ciągłej pracy lub 1 godzinę całkowitej pracy dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="3">Ze sprzętu korzysta się przez okres od 30 minut do 1 godziny w trybie ciągłym lub od 1 do 4 godzin dziennie</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Podłokietniki</ng-template>
+      <div>
+         <mat-radio-group aria-label="Armrests">
+         <div> <mat-radio-button value="1">Kąt między ramieniem i przedramieniem ok 90°, barki są rozluźnione</mat-radio-button></div>
+         <div><mat-radio-button value="2">Podłokietniki są za wysokie (barki są uniesione)</mat-radio-button></div>
+         <div><mat-radio-button value="3">Podłokietniki są za niskie (przedramiona nie są podparte)</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Podłokietniki są ustawione zbyt szeroko (łokcie nie są podparte), lub ramiona są odwiedzione podczas używania podłokietników</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Podłokietniki mają twardą lub uszkodzoną powierzchnię powodującą nacisk na przedramiona</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Podłokietniki lub wsporniki przedramion nie są regulowane</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Oparcie</ng-template>
+      <div>
+         <mat-radio-group aria-label="Chair backrest">
+         <div> <mat-radio-button value="1">Właściwe podparcie pleców, podparcie lędźwiowe, kąt między oparciem a siedziskiem od 95° do 110°</mat-radio-button></div>
+         <div><mat-radio-button value="2">Brak podparcia lędźwiowego</mat-radio-button></div>
+         <div><mat-radio-button value="3">Oparcie jest nadmiernie odchylone (więcej niż 110°)</mat-radio-button></div>
+         <div><mat-radio-button value="4">Brak podparcia pleców (tj. stołek lub niewłaściwa pozycja siedząca))</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Oparcie jest nieregulowane</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Monitor</ng-template>
+      <div>
+         <mat-radio-group aria-label="Screen">
+         <div> <mat-radio-button value="1">Ekran na wyciągnięcie ręki / ekran ustawiony na wysokości oczu</mat-radio-button></div>
+         <div><mat-radio-button value="2">Ekran zbyt nisko (obserwacja ekranu wymaga pochylenia głowy)</mat-radio-button></div>
+         <div><mat-radio-button value="3">Ekran zbyt wysoko (obserwacja ekranu wymaga podnoszenia głowy)</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Użytkownik musi skręcać głowę w celu obserwacji ekranu</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Ekran za daleko (poza zasięgiem ręki, >75 cm)</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Brak uchwytu na dokumenty (jeżeli jest wskazany)</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Na ekranie występują odblaski</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Monitor - czas użytkowania</ng-template>
+      <div>
+         <mat-radio-group aria-label="Screen time">
+         <div> <mat-radio-button value="1">Sprzęt jest używany przez ponad 1 godzinę w trybie ciągłym lub przez ponad 4 godziny dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="2">Sprzęt używany jest przez mniej niż 30 minut ciągłej pracy lub 1 godzinę całkowitej pracy dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="3">Ze sprzętu korzysta się przez okres od 30 minut do 1 godziny w trybie ciągłym lub od 1 do 4 godzin dziennie</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Telefon</ng-template>
+      <div>
+         <mat-radio-group aria-label="Phone">
+         <div> <mat-radio-button value="1">Używany jest zestaw słuchawkowy / obsługa telefonu jedną ręką, szyja w pozycji neutralnej, telefon ustawiony jest w odległości 30 cm</mat-radio-button></div>
+         <div><mat-radio-button value="2">Telefon umieszczony w odległości większej niż 30 cm </mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Używanie głowy i ramienia do podtrzymywania telefonu</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Brak możliwości obsługi telefonu bez użycia rąk</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Telefon - czas użytkowania</ng-template>
+      <div>
+         <mat-radio-group aria-label="Phone time">
+         <div> <mat-radio-button value="1">Sprzęt jest używany przez ponad 1 godzinę w trybie ciągłym lub przez ponad 4 godziny dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="2">Sprzęt używany jest przez mniej niż 30 minut ciągłej pracy lub 1 godzinę całkowitej pracy dziennie </mat-radio-button></div>
+         <div><mat-radio-button value="3">Ze sprzętu korzysta się przez okres od 30 minut do 1 godziny w trybie ciągłym lub od 1 do 4 godzin dziennie </mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Mysz</ng-template>
+      <div>
+         <mat-radio-group aria-label="Mouse">
+         <div> <mat-radio-button value="1">Mysz usytuowana w linii prostej z przedramieniem</mat-radio-button></div>
+         <div><mat-radio-button value="2">Obsługa myszy wymaga odwiedzenia ramienia</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Użycie myszy wymaga chwytu typu pinch (mysz jest zbyt mała)</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Mysz i klawiatura na różnych poziomach</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Twarde podparcie dłoni podczas obsługi myszy</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Mysz - czas użytkowania</ng-template>
+      <div>
+         <mat-radio-group aria-label="Mouse time">
+         <div> <mat-radio-button value="1">Sprzęt jest używany przez ponad 1 godzinę w trybie ciągłym lub przez ponad 4 godziny dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="2">Sprzęt używany jest przez mniej niż 30 minut ciągłej pracy lub 1 godzinę całkowitej pracy dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="3">Ze sprzętu korzysta się przez okres od 30 minut do 1 godziny w trybie ciągłym lub od 1 do 4 godzin dziennie</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Klawiatura</ng-template>
+      <div>
+         <mat-radio-group aria-label="Keyboard">
+         <div> <mat-radio-button value="1">Nadgarstki w pozycji naturalnej, barki są rozluźnione</mat-radio-button></div>
+         <div><mat-radio-button value="2">Podczas pisania ręka jest zgięta grzbietowo w nadgarstku ponad 15°</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    <div>
+      <section class="example-section">
+        <div><mat-checkbox class="example-margin">Podczas pisania ręce są w zgięciu łokciowym</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Klawiatura zbyt wysoko i barki są uniesione</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Nachylenie klawiatury nie jest regulowane</mat-checkbox></div>
+        <div><mat-checkbox class="example-margin">Praca wymaga wysokiego (powyżej głowy) sięgania</mat-checkbox></div>
+      </section>
+    </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious type="button">Wstecz</button>
+        <button mat-button matStepperNext type="button">Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Klawiatura - czas użytkowania</ng-template>
+      <div>
+         <mat-radio-group aria-label="Keyboard time">
+         <div> <mat-radio-button value="1">Sprzęt jest używany przez ponad 1 godzinę w trybie ciągłym lub przez ponad 4 godziny dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="2">Sprzęt używany jest przez mniej niż 30 minut ciągłej pracy lub 1 godzinę całkowitej pracy dziennie</mat-radio-button></div>
+         <div><mat-radio-button value="3">Ze sprzętu korzysta się przez okres od 30 minut do 1 godziny w trybie ciągłym lub od 1 do 4 godzin dziennie</mat-radio-button></div>
+      </mat-radio-group>
+    </div>
+    
+      <div class="mt-3">
         <button mat-button matStepperPrevious type="button">Wstecz</button>
         <button mat-button matStepperNext type="button">Dalej</button>
       </div>
