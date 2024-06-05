@@ -26,6 +26,7 @@ worker = new Worker();
   const workerData = {
     name: this.worker.name,
     surname: this.worker.surname,
+    questions: this.worker.questions,
   }
  this.workerService.writeWorkers(workerData);
   }
@@ -80,8 +81,6 @@ isLinear = false;
 getData(){
     this.worker.name = this.personalData.value.name!;
     this.worker.surname = this.personalData.value.surname!;
-    this.worker.questions[0].answers = true;
-
 
 }
 
