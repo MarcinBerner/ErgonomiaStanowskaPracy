@@ -12,7 +12,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 2,
@@ -22,7 +23,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 3,
@@ -32,7 +34,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 4,
@@ -44,7 +47,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 5,
@@ -55,7 +59,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 6,
@@ -68,7 +73,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 7,
@@ -77,7 +83,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 8,
@@ -87,7 +94,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 9,
@@ -96,7 +104,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 10,
@@ -107,7 +116,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 11,
@@ -117,7 +127,8 @@ export class Worker{
         false,
         false,
 
-      ]
+      ],
+      score: 0,
     },
     {
       number: 12,
@@ -129,7 +140,8 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
     {
       number: 13,
@@ -138,9 +150,14 @@ export class Worker{
         false,
         false,
         false,
-      ]
+      ],
+      score: 0,
     },
   ];
+  score = {
+    name: "Sekcja A - krzesło"
+
+  }
   constructor(){
 
   }

@@ -1,7 +1,6 @@
 // import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Firestore, addDoc, collection } from '@angular/fire/firestore';
-import {Worker} from '../classes/workerClass';
 
 @Injectable({
   providedIn: 'root'
