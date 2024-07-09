@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { WorkerService } from '../core/services/worker.service';
 import { Worker } from '../core/classes/workerClass';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 // import { Firestore } from '@angular/fire/firestore';
 

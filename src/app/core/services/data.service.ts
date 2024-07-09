@@ -84,4 +84,25 @@ export class DataService {
   getRosa(): number[][] {
     return this.rosa;
   }
+  getScoreSectionA(seatHeightPlusSeatdeapth: number, armrestsPlusChairBackrest: number){
+    const i = seatHeightPlusSeatdeapth - 2;
+    const j = armrestsPlusChairBackrest - 2;
+    return this.sectionA[i][j];
+  }
+  getScoreSectionB(phonePlusPhoneTime: number, screenPlusScreenTime: number){
+    const i = phonePlusPhoneTime;
+    const j = screenPlusScreenTime;
+    return this.sectionB[i][j];
+  }
+  getScoreSectionC(scoreSectionB: number, scoreSectionC: number){
+   const i = scoreSectionB;
+   const j = scoreSectionC;
+   return this.sectionC[i][j];
+  }
+  getScoreRosa(scoreSectionAPlusTime: number, scoreSectionD: number){
+   const i = scoreSectionAPlusTime - 1;
+   const j = scoreSectionD - 1;
+   return this.rosa[i][j];
+  }
+
 }
