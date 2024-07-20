@@ -154,10 +154,7 @@ export class Worker{
       score: 0,
     },
   ];
-  score = {
-    name: "Sekcja A - krzesło"
-
-  }
+  
   constructor(){
 
   }

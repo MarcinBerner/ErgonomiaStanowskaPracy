@@ -94,7 +94,13 @@ export class DataService {
     const j = screenPlusScreenTime;
     return this.sectionB[i][j];
   }
-  getScoreSectionC(scoreSectionB: number, scoreSectionC: number){
+  getScoreSectionC(keyboardPlusKeyboardTime: number, mousePlusMouseTime: number){
+    const i = keyboardPlusKeyboardTime;
+    const j = mousePlusMouseTime;
+    return this.sectionC[i][j];
+
+  }
+  getScoreSectionD(scoreSectionB: number, scoreSectionC: number){
    const i = scoreSectionB;
    const j = scoreSectionC;
    return this.sectionC[i][j];

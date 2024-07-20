@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { WorkerService } from '../core/services/worker.service';
 import { Worker } from '../core/classes/workerClass';
 import { FormBuilder, Validators } from '@angular/forms';
+import { DataService } from '../core/services/data.service';
 
 // import { Firestore } from '@angular/fire/firestore';
 
@@ -12,10 +13,16 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent {
   worker = new Worker();
+  private scoreSectionA!: number;
+  private scoreSectionB!: number;
+  private scoreSectionC!: number;
+  private scoreSectionD!: number;
+  private scoreRosa!: number;
 
   constructor(
     private workerService: WorkerService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private dataService: DataService
   ) {}
 
   personalData = this._formBuilder.group({
@@ -217,7 +224,7 @@ export class FormComponent {
       this.thirteenthQuestion.value.keyboardTime === '3';
   }
 
-  doTheMath(): void {
+  matchScores(): void {
     //question 1
     if (this.worker.questions[0].answers[0]) this.worker.questions[0].score = 1;
     if (this.worker.questions[0].answers[1]) this.worker.questions[0].score = 2;
@@ -296,12 +303,35 @@ export class FormComponent {
   saveData(): void {
     if (this.personalData.valid) {
       this.getData();
+      this.matchScores();
+      this.countScores();
       const workerData = {
         name: this.worker.name,
         surname: this.worker.surname,
         questions: this.worker.questions,
+        scoreSectionA: this.scoreSectionA,
+        scoreSectionB: this.scoreSectionB,
+        scoreSectionC: this.scoreSectionC,
+        scoreSectionD: this.scoreSectionD,
+        scoreRosa: this.scoreRosa,
       };
       this.workerService.writeWorkers(workerData);
     }
+  }
+  countScores(){
+    const seatHeightPlusSeatdeapth = this.worker.questions[0].score + this.worker.questions[1].score;
+    const armrestsPlusChairBackrest = this.worker.questions[3].score + this.worker.questions[4].score;
+    const phonePlusPhoneTime = this.worker.questions[7].score + this.worker.questions[8].score;
+
+    const screenPlusScreenTime = this.worker.questions[5].score + this.worker.questions[6].score;
+    const keyboardPlusKeyboardTime = this.worker.questions[11].score + this.worker.questions[12].score;
+    const mousePlusMouseTime = this.worker.questions[9].score + this.worker.questions[10].score;
+     this.scoreSectionA = this.dataService.getScoreSectionA(seatHeightPlusSeatdeapth, armrestsPlusChairBackrest);
+    const scoreSectionAPlusTime = this.scoreSectionA + this.worker.questions[2].score;
+    this.scoreSectionB = this.dataService.getScoreSectionB(phonePlusPhoneTime, screenPlusScreenTime);
+    this.scoreSectionC = this.dataService.getScoreSectionC(keyboardPlusKeyboardTime, mousePlusMouseTime);
+    this.scoreSectionD = this.dataService.getScoreSectionD(this.scoreSectionB, this.scoreSectionC);
+    this.scoreRosa = this.dataService.getScoreRosa(scoreSectionAPlusTime,this.scoreSectionD);
+
   }
 }
