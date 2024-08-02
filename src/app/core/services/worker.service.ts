@@ -22,10 +22,4 @@ export class WorkerService {
 
   }
 
-  getWorkers(): void {
-
-  }
-  addWorker(): void{
-
-  }
 }

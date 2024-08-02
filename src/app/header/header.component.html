@@ -8,9 +8,10 @@
     <ul class="nav nav-pills">
       <li class="nav-item mx-1"><a routerLink="" class="text-decoration-none">Ankieta</a></li>
       @if (authService.currentUserSig() == null){
-      <li class="nav-item text-decoration-none mx-1"><a routerLink="login" class="text-decoration-none">Logowanie</a></li>
+      <li class="nav-item mx-1"><a routerLink="login" class="text-decoration-none">Logowanie</a></li>
       }
       @if (authService.currentUserSig()){
+      <li class="nav-item mx-1"><a routerLink="score" class="text-decoration-none">Wyniki</a></li>
         <div>
           <span class="link" (click)="authService.logout()">Wyloguj</span>
         </div>
