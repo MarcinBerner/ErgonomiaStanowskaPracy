@@ -7,10 +7,32 @@ import { WorkerService } from '../core/services/worker.service';
   styleUrl: './score.component.css',
 })
 export class ScoreComponent {
+  workers: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 3;
   constructor(private workerService: WorkerService) {}
-  async ngOnInit() {
-    const workers = await this.workerService.fetchWorkers();
-    console.log(workers);
+  async ngOnInit(): Promise<void> {
+    try {
+      this.workers = await this.workerService.fetchWorkers();
+    } catch (error) {
+      console.error('Error fetching workers:', error);
+    }
+
+  }
+  get paginatedWorkers(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.workers.slice(startIndex, endIndex);
   }
 
+  changePage(page: number) {
+    this.currentPage = page;
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.workers.length / this.itemsPerPage);
+  }
 }
+
+
+

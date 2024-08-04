@@ -2,7 +2,34 @@
 
 
   <h2>Wyniki pracowników</h2>
-
+  <div *ngFor="let worker of paginatedWorkers; let i = index">
+    <p>Numer: {{ (currentPage - 1) * itemsPerPage + i + 1 }}</p>
+    <p>Imię: {{worker.name}}</p>
+    <p>Nazwisko: {{worker.surname}}</p>
+    <p>Wynik Sekcji A: {{worker.scoreSectionA}}</p>
+    <p>Wynik Sekcji B: {{worker.scoreSectionB}}</p>
+    <p>Wynik Sekcji C: {{worker.scoreSectionC}}</p>
+    <p>Wynik Sekcji D: {{worker.scoreSectionD}}</p>
+    <p>Wynik Rosa: {{worker.scoreRosa}}</p>
+    <div class="line"></div>
+  </div>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="changePage(currentPage - 1)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li *ngFor="let page of [].constructor(totalPages()); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+        <a class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages()">
+        <a class="page-link" (click)="changePage(currentPage + 1)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
 
 </div>
