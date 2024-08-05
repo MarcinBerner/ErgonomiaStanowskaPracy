@@ -14,6 +14,18 @@ export class ScoreComponent {
   async ngOnInit(): Promise<void> {
     try {
       this.workers = await this.workerService.fetchWorkers();
+      this.workers.sort((a,b)=>{
+        const nameA = a.surname.toUpperCase();
+        const nameB = b.surname.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        return 0;
+      });
     } catch (error) {
       console.error('Error fetching workers:', error);
     }
