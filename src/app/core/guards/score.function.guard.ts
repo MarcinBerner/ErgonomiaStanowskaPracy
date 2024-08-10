@@ -1,14 +1,16 @@
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from "@angular/router";
 import { AuthService } from "../services/auth.service";
-import { inject } from "@angular/core";
+import { effect, inject } from "@angular/core";
 
 export const scoreGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-  const userSig = inject(AuthService).currentUserSig();
-  let isLoggedIn!: boolean;
-  if(userSig != undefined && userSig != null){
-    isLoggedIn = true;
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  const isLoggedIn = authService.isLoggedIn();
+  if (isLoggedIn) {
+    return true;
   }
 
-  return isLoggedIn ? isLoggedIn : inject(Router).createUrlTree(['/login']);
+  return router.createUrlTree(['/login']);
 
 }

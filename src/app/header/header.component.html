@@ -7,13 +7,13 @@
 
     <ul class="nav nav-pills">
       <li class="nav-item mx-1"><a routerLink="" class="text-decoration-none">Ankieta</a></li>
-      @if (authService.currentUserSig() == null){
+      @if (authService.isLoggedIn() == false){
       <li class="nav-item mx-1"><a routerLink="login" class="text-decoration-none">Logowanie</a></li>
       }
-      @if (authService.currentUserSig()){
+      @if (authService.isLoggedIn() == true){
       <li class="nav-item mx-1"><a routerLink="score" class="text-decoration-none">Wyniki</a></li>
         <div>
-          <span class="link" (click)="authService.logout()">Wyloguj</span>
+          <a routerLink="" class="text-decoration-none"><span class="link" (click)="authService.logout()">Wyloguj</span></a>
         </div>
       }
     </ul>

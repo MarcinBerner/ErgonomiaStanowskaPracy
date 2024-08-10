@@ -16,7 +16,7 @@ export class HeaderComponent {
           this.authService.currentUserSig.set({
             email: user.email!,
             username: user.displayName!,
-            password: '',
+            uid: user.uid
           });
         }
         else{
